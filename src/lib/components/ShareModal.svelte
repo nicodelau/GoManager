@@ -159,8 +159,8 @@
         {/if}
 
         <!-- Share type -->
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Share Type</label>
+        <fieldset>
+          <legend class="block text-sm font-medium text-gray-700 mb-2">Share Type</legend>
           <div class="flex gap-4">
             <label class="flex items-center gap-2 cursor-pointer">
               <input type="radio" bind:group={shareType} value="public" class="text-blue-600" />
@@ -171,7 +171,7 @@
               <span class="text-sm">Password Protected</span>
             </label>
           </div>
-        </div>
+        </fieldset>
 
         <!-- Password field (conditional) -->
         {#if shareType === 'password'}
@@ -190,8 +190,8 @@
         {/if}
 
         <!-- Permission -->
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Permission</label>
+        <fieldset>
+          <legend class="block text-sm font-medium text-gray-700 mb-2">Permission</legend>
           <div class="flex gap-4">
             <label class="flex items-center gap-2 cursor-pointer">
               <input type="radio" bind:group={permission} value="download" class="text-blue-600" />
@@ -202,7 +202,7 @@
               <span class="text-sm">View Only</span>
             </label>
           </div>
-        </div>
+        </fieldset>
 
         <!-- Advanced options -->
         <details class="group">
