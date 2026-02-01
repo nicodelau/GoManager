@@ -223,7 +223,13 @@
           {/each}
         {:else if stats && stats.recentFiles && stats.recentFiles.length > 0}
           {#each stats.recentFiles as file}
-            <div class="px-6 py-3 hover:bg-gray-50 cursor-pointer" on:click={() => navigate('files')}>
+            <button 
+              type="button" 
+              class="w-full text-left px-6 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset transition-colors" 
+              on:click={() => navigate('files')}
+              on:keydown={(e) => e.key === 'Enter' && navigate('files')}
+              aria-label="View file: {file.name}"
+            >
               <div class="flex items-center gap-3">
                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -233,7 +239,7 @@
                   <p class="text-xs text-gray-500">{formatSize(file.size)} - {formatDate(file.modTime)}</p>
                 </div>
               </div>
-            </div>
+            </button>
           {/each}
         {:else}
           <div class="px-6 py-8 text-center text-gray-500">
